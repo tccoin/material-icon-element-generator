@@ -2,6 +2,14 @@
 
 Automatically generate an Polymer icons element for new material design icons like rounded and sharp style.
 
+## Install
+
+Download the script, then use:
+
+```python
+pip install -r requirements.txt
+```
+
 ## Usage
 
 - `generate.py`: main script.
