@@ -4,9 +4,11 @@ Automatically generate an Polymer icons element for new material design icons li
 
 ## Usage
 
-- `icons.json`: set the icon you need.
-- `template.html`: set the template of the Polymer element.
 - `generate.py`: main script.
+- `template.html`: the default template of the Polymer element.
+- `config.json`: where all the options are provided.
   - `style`: the style you want. See [Icons - Material Design](https://material.io/tools/icons/). 'Round' and 'Sharp' tested.
   - `svgUrl`: just... the url template of svg...
-  - `elementName`: The final element name
+  - `elementName`: the name of the output element
+  - `template`: the template you want to use for generating the element
+  - `icons`: the icons you want

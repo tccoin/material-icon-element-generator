@@ -5,22 +5,19 @@ from urllib import request
 import xmltodict
 import re
 
-style = 'Round'#'Sharp' 'Round'
-svgUrl = "https://material.io/tools/icons/static/icons/{}-{}-24px.svg"
 currentPath = os.path.split(os.path.realpath(__file__))[0] + os.sep + '{}'
-elementName = 'klog-icon'
 
 def readJson(inputFile):
     with open(currentPath.format(inputFile), 'r') as f:
         return json.load(f)
 
 def getSVG(icon):
-    temp = currentPath.format(os.path.join('tmp', style+'_'+icon+'.svg'))
+    temp = currentPath.format(os.path.join('tmp', config['style']+'_'+icon+'.svg'))
     if os.path.exists(temp):
         with open(temp) as f:
             xml = f.read()
     else:
-        url = svgUrl.format(style.lower(),icon)
+        url = config['svgUrl'].format(config['style'].lower(),icon)
         print('download: ', url)
         req = request.Request(url)
         xml = request.urlopen(req).read().decode()
@@ -32,7 +29,7 @@ def getSVG(icon):
 
 def parseSVG(svg):
     for g in svg['svg']['g']:
-        if re.match(style,g['@id']):
+        if re.match(config['style'],g['@id']):
             print(icon,json.dumps(g),sep=':\n')
             if 'g' in g and isinstance(g['g'],list):
                 paths = g['g']
@@ -48,14 +45,14 @@ def parseSVG(svg):
     return r
 
 def generateElement(slot):
-    with open(currentPath.format('template.html'), 'r') as fr:
-        with open(currentPath.format(os.path.join('dist', elementName+'.html')), 'w') as fw:
+    with open(currentPath.format(config['template']), 'r') as fr:
+        with open(currentPath.format(os.path.join('dist', config['elementName']+'.html')), 'w') as fw:
             fw.write(fr.read().format(slot))
 
 if __name__=='__main__':
-    icons = readJson('icons.json')
+    config= readJson('config.json')
     r = []
-    for icon in icons:
+    for icon in config['icons']:
         svg = getSVG(icon)
         if svg:
             r += [parseSVG(svg)]
