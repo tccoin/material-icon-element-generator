@@ -8,6 +8,8 @@ Download the script, then use:
 
 ```python
 pip install -r requirements.txt
+mkdir tmp
+mkdir dist
 ```
 
 ## Usage
