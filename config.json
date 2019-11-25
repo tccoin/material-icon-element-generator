@@ -1,11 +1,13 @@
 {
-    "style": "Round",
+    "style": "round",
     "svgUrl": "https://material.io/tools/icons/static/icons/{}-{}-24px.svg",
-    "elementName": "klog-icon",
+    "elementName": "klog-icons",
     "template": "template.html",
     "icons": [
         "menu",
         "attachment",
+        "bookmark",
+        "bookmark_border",
         "plus_one",
         "open_in_new",
         "comment",
@@ -28,7 +30,12 @@
         "keyboard_arrow_up",
         "arrow_drop_down",
         "add",
+        "add_box",
+        "add_circle",
+        "add_circle_outline",
         "edit",
+        "flag",
+        "outlined_flag",
         "arrow_forward",
         "more_horiz",
         "more_vert",
@@ -48,6 +55,8 @@
         "public",
         "share",
         "cloud",
-        "close"
+        "close",
+        "flash_on",
+        "photo_filter"
     ]
 }
