@@ -1,9 +1,14 @@
 {
     "style": "round",
-    "svgUrl": "https://material.io/tools/icons/static/icons/{}-{}-24px.svg",
+    "svgUrl": "https://fonts.gstatic.com/s/i/materialicons{}/{}/v1/24px.svg",
     "elementName": "klog-icons",
     "template": "template.html",
     "icons": [
+        "swap_vertical_circle",
+        "system_update_alt",
+        "new_releases",
+        "flag",
+        "outlined_flag",
         "menu",
         "attachment",
         "bookmark",
