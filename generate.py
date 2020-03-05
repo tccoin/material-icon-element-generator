@@ -32,7 +32,8 @@ def getSVG(icon):
 
 
 def parseSVG(icon, svg):
-    return '<g id="{}">{}</g>'.format(icon, re.match(r'<svg.*?>(.*)<\/svg>', svg).groups()[0])
+    a = re.match(r'<svg.*?>(.*)<\/svg>', svg, re.S)
+    return '<g id="{}">{}</g>'.format(icon, re.search('<svg.*?>(.*)<\/svg>', svg, re.S).groups()[0].replace('\n',''))
 
 
 def generateElement(slot):
