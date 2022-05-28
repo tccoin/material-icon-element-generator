@@ -2,7 +2,7 @@
     "style": "round",
     "svgUrl": "https://fonts.gstatic.com/s/i/materialicons{}/{}/v1/24px.svg",
     "elementName": "klog-icons",
-    "template": "template.html",
+    "template": "template.js",
     "icons": [
         "category",
         "code",
@@ -83,6 +83,9 @@
         "cloud",
         "close",
         "flash_on",
-        "photo_filter"
+        "photo_filter",
+        "thumb_up",
+        "notifications",
+        "launch"
     ]
 }

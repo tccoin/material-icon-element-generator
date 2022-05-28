@@ -4,6 +4,8 @@ import os
 from urllib import request
 import xmltodict
 import re
+import ssl
+import certifi
 
 currentPath = os.path.split(os.path.realpath(__file__))[0] + os.sep + '{}'
 
@@ -23,7 +25,7 @@ def getSVG(icon):
         url = config['svgUrl'].format(config['style'].lower(), icon)
         print('download: ', url)
         req = request.Request(url)
-        xml = request.urlopen(req).read().decode()
+        xml = request.urlopen(req, context=ssl.create_default_context(cafile=certifi.where())).read().decode()
         if not xml:
             return ''
         with open(temp, 'w+') as f:
@@ -38,7 +40,7 @@ def parseSVG(icon, svg):
 
 def generateElement(slot):
     with open(currentPath.format(config['template']), 'r') as fr:
-        with open(currentPath.format(os.path.join('dist', config['elementName']+'.html')), 'w') as fw:
+        with open(currentPath.format(os.path.join('dist', config['elementName']+'.js')), 'w') as fw:
             fw.write(fr.read().format(slot))
 
 
